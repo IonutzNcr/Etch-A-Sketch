@@ -1,56 +1,52 @@
 const container = document.querySelector(".container");
 
 
+
+
+//initialisation of the function parameter 
+let nmbrOfDiv  = 16;
+let nmbrOfElementsInArow = nmbrOfDiv;
+let nbrOfColumn = 16;
+
 function createColumn(numberOfColumn){
     const secondContainer = document.createElement("div")
-    function createRow(numberOfDiv){
+    secondContainer.setAttribute("class","secondContainer")
+    // It will repeat createSingleDiv() 
+    function createRow(numberOfRepetition){
     
-
-        function createDiv(){
-            
-            const div = document.createElement("div");
-            secondContainer.appendChild(div);
-        }
+    function createSingleDiv(){
+        const div = document.createElement("div");
         
-        
-        if(numberOfDiv == 1) {
-            
-            createDiv()
-            container.appendChild(secondContainer)
-            
-        } 
-        else {
-           
-            createDiv()
-            createRow(numberOfDiv-1)
-        } 
+        secondContainer.appendChild(div)
         
     }
-    
-
-    if(numberOfColumn==1){
-        
-        createRow(16)
+    //recursion Time
+    if(numberOfRepetition==1){
+        createSingleDiv();
+        container.appendChild(secondContainer);
     } else {
+        createSingleDiv();
         
-        createRow(16)
-        createColumn(numberOfColumn-1)
+        createRow(numberOfRepetition-1)
+        }
     }
-    
+
+
+    //recursion for Column 
+    if(numberOfColumn==1){
+        createRow(nmbrOfDiv);
+    } else {
+        createRow(nmbrOfDiv);
+        createColumn(numberOfColumn-1);
+    }
 }
 
-createColumn(16);
 
-const divs = document.querySelectorAll('.container div div')
-console.log(divs)
-function hoverOver(e){
-    
-    e.currentTarget.style.backgroundColor = "red"
-}
+createColumn(nbrOfColumn);
 
-function hoverEnd(e) {
-    e.currentTarget.style.backgroundColor = "white"
-}
-
-divs.forEach(div=>div.addEventListener('mouseenter',hoverOver))
-divs.forEach(div=>div.addEventListener('mouseout',hoverEnd))
+const smallDiv = document.querySelectorAll(".secondContainer div")
+console.log(smallDiv)
+smallDiv.forEach(div=>{
+    div.style.width = `${(600/nmbrOfElementsInArow)}px`;
+    div.style.height = `${(600/nmbrOfElementsInArow)}px`;
+})
