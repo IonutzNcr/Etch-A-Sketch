@@ -1,28 +1,43 @@
 const container = document.querySelector(".container");
-const secondContainer = document.createElement("div")
 
 
-function createRow(numberOfDiv){
+function createColumn(numberOfColumn){
+    const secondContainer = document.createElement("div")
+    function createRow(numberOfDiv){
     
 
-    function createDiv(){
+        function createDiv(){
+            
+            const div = document.createElement("div");
+            secondContainer.appendChild(div);
+        }
         
-        const div = document.createElement("div");
-        secondContainer.appendChild(div);
+        
+        if(numberOfDiv == 1) {
+            
+            createDiv()
+            container.appendChild(secondContainer)
+            
+        } 
+        else {
+           
+            createDiv()
+            createRow(numberOfDiv-1)
+        } 
+        
     }
     
-    console.log(numberOfDiv)
-    if(numberOfDiv == 1) {
+
+    if(numberOfColumn==1){
         
-        createDiv()
-        container.appendChild(secondContainer)
+        createRow(16)
+    } else {
         
-    } 
-    else {
-       
-        createDiv()
-        createRow(numberOfDiv-1)
-    } 
+        createRow(16)
+        createColumn(numberOfColumn-1)
+    }
     
 }
-createRow(16)
+
+createColumn(16);
+
