@@ -41,3 +41,16 @@ function createColumn(numberOfColumn){
 
 createColumn(16);
 
+const divs = document.querySelectorAll('.container div div')
+console.log(divs)
+function hoverOver(e){
+    
+    e.currentTarget.style.backgroundColor = "red"
+}
+
+function hoverEnd(e) {
+    e.currentTarget.style.backgroundColor = "white"
+}
+
+divs.forEach(div=>div.addEventListener('mouseenter',hoverOver))
+divs.forEach(div=>div.addEventListener('mouseout',hoverEnd))
