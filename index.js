@@ -1,8 +1,5 @@
 const container = document.querySelector(".container");
 
-
-
-
 //initialisation of the function parameter 
 let nbrOfDiv  = 16;
 let nbrOfElementsInArow= nbrOfDiv;
@@ -85,9 +82,6 @@ function mouseOut(e){
         e.currentTarget.style.opacity = `${opacity+=0.1}`
        
     }
-    
-    
-    
 }
 
 //add reset boutton that will reset the grid size 
@@ -101,16 +95,16 @@ function resetScreen(){
     const scdContainer = document.querySelectorAll('.secondContainer')
     scdContainer.forEach(div=>container.removeChild(div))
     //reset functions parameter to new values then recreate the grid with createColumn
-    nbrOfColumn = +prompt("Height"); // a number
-    nbrOfDiv = +prompt("Width"); // a number
+    nbrOfColumn = +prompt("Size of the grid:"); // a number
+    nbrOfDiv = nbrOfColumn; // a number
     nbrOfElementsInArow= nbrOfColumn; // a number
    
     
     if (nbrOfColumn == nbrOfDiv && nbrOfColumn<101){
         createColumn(nbrOfColumn);
+
         const container_nb_2 = document.querySelectorAll(".secondContainer>div")
-        //small div is not empty but because you removed every secondContainer from the dom there are'nt any other element of the array in the DOM.
-        console.log(container_nb_2)
+        
         container_nb_2.forEach(div=>{
             div.style.width = `${(600/nbrOfElementsInArow)}px`;
             div.style.height = `${(600/nbrOfElementsInArow)}px`;
