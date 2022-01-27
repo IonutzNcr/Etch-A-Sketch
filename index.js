@@ -44,7 +44,7 @@ createColumn(nbrOfColumn);
 // add size because I couldn't do it inside the recursion 
 // add event listener to add effect and reset 
 const smallDiv = document.querySelectorAll(".secondContainer div");
-console.log(smallDiv);
+
 smallDiv.forEach(div=>{
     div.style.width = `${(600/nbrOfElementsInArow)}px`;
     div.style.height = `${(600/nbrOfElementsInArow)}px`;
