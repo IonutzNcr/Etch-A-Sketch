@@ -1,4 +1,4 @@
-/**{
+*{
     margin :0;
     padding:0;
 }
@@ -21,13 +21,13 @@ body{
     border: 1px solid red;
 }
 .container div div{
-    width: 37.5px;
-    height: 37.5px;
+   
     box-sizing: border-box;
+    border:1px solid red;
     
 }
 
 .container div {
     display:flex;
     flex-direction: row;
-} */
+} 
