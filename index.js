@@ -56,16 +56,21 @@ smallDiv.forEach(div=>{
 })
 
 // add opacity 
-
+//add random color for the backgroundColor;
 let opacity;
 let previousOpacity; // keep the old opacity value and prevent the lost of the previous value when inside of mousIn()
 function mouseIn(e){
     previousOpacity=+e.currentTarget.style.opacity;
     e.currentTarget.style.opacity = "1";
-    e.currentTarget.style.backgroundColor  = "red";
+    e.currentTarget.style.backgroundColor  = randomRgb();
+}
+
+function randomRgb(){
+    let red = Math.random()*255
+    let green = Math.random()*255
+    let blue = Math.random()*255
     
-    
-    
+    return `rgb(${red},${green},${blue})`
 }
 
 function mouseOut(e){
