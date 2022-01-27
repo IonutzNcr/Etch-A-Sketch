@@ -55,12 +55,34 @@ smallDiv.forEach(div=>{
     div.addEventListener("mouseout",mouseOut);
 })
 
+// add opacity 
+
+let opacity;
+let previousOpacity;
 function mouseIn(e){
+    previousOpacity=+e.currentTarget.style.opacity;
+    e.currentTarget.style.opacity = "1";
     e.currentTarget.style.backgroundColor  = "red";
+    
+    
+    
 }
 
 function mouseOut(e){
-    e.currentTarget.style.backgroundColor = "white";
+    opacity = previousOpacity;
+    e.currentTarget.style.opacity = `${opacity}`
+    e.currentTarget.style.backgroundColor = "black";
+    if(!e.currentTarget.style.opacity){
+        opacity=0.1;
+        e.currentTarget.style.opacity = `${opacity}`;
+    } else {
+        opacity = +e.currentTarget.style.opacity
+        e.currentTarget.style.opacity = `${opacity+=0.1}`
+       
+    }
+    
+    
+    
 }
 
 //add reset boutton that will reset the grid size 
