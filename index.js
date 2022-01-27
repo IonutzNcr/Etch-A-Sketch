@@ -58,7 +58,7 @@ smallDiv.forEach(div=>{
 // add opacity 
 
 let opacity;
-let previousOpacity;
+let previousOpacity; // keep the old opacity value and prevent the lost of the previous value when inside of mousIn()
 function mouseIn(e){
     previousOpacity=+e.currentTarget.style.opacity;
     e.currentTarget.style.opacity = "1";
